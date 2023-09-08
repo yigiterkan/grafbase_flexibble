@@ -34,7 +34,7 @@ export const authOptions: NextAuthOptions = {
   },
   theme: {
     colorScheme: "light",
-    logo: "/logo.png",
+    logo: "/logo.svg",
   },
   callbacks: {
     async session({ session }) {
@@ -49,8 +49,8 @@ export const authOptions: NextAuthOptions = {
           },
         };
         return newSession;
-      } catch (error) {
-        console.log("Error retrieving user data", error);
+      } catch (error: any) {
+        console.log("Error retrieving user data", error.message);
         return session;
       }
     },
